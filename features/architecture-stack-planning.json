@@ -1,0 +1,36 @@
+{
+  "id": "architecture-stack-planning",
+  "title": "Plan architecture and technology stack from requirements",
+  "goal": "Provide a project-local skill that turns reviewed requirements and feature plans into a grounded architecture and technology stack recommendation before implementation begins.",
+  "in_scope": [
+    "Create a discoverable skill at .agents/skills/architecture-planning/SKILL.md.",
+    "Use the reviewed functional and non-functional requirements, MVP summary, feature roadmap, and existing repository structure as decision inputs.",
+    "Recommend an architecture and technology stack sized to the requirements, hackathon timeline, team familiarity, deployment constraints, and current project dependencies.",
+    "Compare alternatives and tradeoffs when they materially affect the decision; ask targeted follow-up questions when a missing requirement could change the architecture or stack.",
+    "Record components, responsibilities, important data flows, deployment/runtime assumptions, technology choices, rationale, and open decisions in ARCHITECTURE.md, following existing documentation conventions when present.",
+    "Separate user-confirmed decisions from agent recommendations and unresolved decisions; do not treat a recommendation as confirmed until the user agrees.",
+    "Verify recommendations for new or changeable technologies against current authoritative documentation when needed.",
+    "Keep the skill focused on planning and documentation; do not implement the proposed architecture or modify product runtime configuration."
+  ],
+  "out_of_scope": [
+    "Implementing application code, creating deployment infrastructure, or changing runtime configuration.",
+    "Choosing technologies without relating them to the requirements, repository, or project constraints."
+  ],
+  "acceptance_criteria": [
+    "The skill is discoverable under .agents/skills/architecture-planning/ and has valid frontmatter and a focused description.",
+    "It reads reviewed requirements and the existing repository before proposing architecture or technologies.",
+    "It explains how architecture and stack choices address functional and non-functional requirements and the next features in the roadmap.",
+    "It considers alternatives and asks focused questions for unresolved decisions that materially affect the recommendation.",
+    "It records proposed, confirmed, and open decisions with rationale in ARCHITECTURE.md or the repository's existing equivalent.",
+    "It does not implement code or modify product configuration as part of architecture planning."
+  ],
+  "verification": [
+    "python C:/Users/trimi/.codex/skills/.system/skill-creator/scripts/quick_validate.py .agents/skills/architecture-planning",
+    "python harness.py validate"
+  ],
+  "approval": {
+    "by": "user",
+    "at": "2026-11-01T03:15:48.752296+00:00",
+    "revision": "e420ad2249d84b404613771a7ddbd8dc225031ef8abb95ed2813cdb9ee15277c"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "exception-and-outlier-probing",
+  "title": "Probe exceptions and outliers during requirements interviews",
+  "goal": "Help the requirements interview skill consistently notice exception cases and ask targeted follow-up questions when they affect product requirements.",
+  "in_scope": [
+    "Update the project-local requirements-interview skill to consider exceptions, boundaries, and outlier scenarios while interpreting each meaningful user answer.",
+    "Treat absolute or broad wording such as all, always, never, and must as a prompt to check the rule's population, applicability conditions, and exceptions.",
+    "Provide adaptable exception lenses such as entity or actor states, availability or eligibility, timing, resource conflicts, missing or invalid information, and failure or recovery paths.",
+    "Ask concise follow-up questions only when an exception or outlier could materially change the requirement, workflow, scope, or expected behavior.",
+    "Record confirmed exception behavior and unresolved cases without inventing a policy or treating a hypothetical as a user decision."
+  ],
+  "out_of_scope": [
+    "Enumerating every imaginable edge case for every answer.",
+    "Changing the harness CLI or automatically deciding business policies."
+  ],
+  "acceptance_criteria": [
+    "The skill instructs the agent to consider relevant exceptions and outliers for each meaningful answer throughout the interview.",
+    "Absolute wording such as all, always, never, or must triggers a check of who or what is covered and when the rule may not apply.",
+    "The skill gives useful but non-exhaustive lenses for generating domain-relevant edge-case candidates.",
+    "The agent asks targeted follow-ups when different answers would materially change requirements, and avoids burdening the user with irrelevant hypotheticals.",
+    "The agent records confirmed exception rules separately from assumptions and unresolved cases, without inventing policy."
+  ],
+  "verification": [
+    "python C:/Users/trimi/.codex/skills/.system/skill-creator/scripts/quick_validate.py .agents/skills/requirements-interview",
+    "python harness.py validate"
+  ],
+  "approval": {
+    "by": "user",
+    "at": "2026-11-01T02:05:21.013541+00:00",
+    "revision": "612c4766f6be0745276e290599c04a838ec49f6a3292c5551287eb2c3ae4961f"
+  }
+}

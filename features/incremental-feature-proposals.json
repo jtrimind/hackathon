@@ -1,0 +1,34 @@
+{
+  "id": "incremental-feature-proposals",
+  "title": "Recommend and implement one small feature at a time",
+  "goal": "Keep the requirements interview's implementation proposal small and actionable by recommending one independently verifiable next feature instead of asking the user to choose among oversized first-version bundles.",
+  "in_scope": [
+    "Update the project-local requirements-interview skill to maintain a full feature map as a roadmap while separating it from the current implementation step.",
+    "Split broad end-to-end product flows into small, independently verifiable features before recommending implementation work.",
+    "Recommend one next feature at a time, using user value, independence, cross-cutting needs, and dependency order to explain the recommendation.",
+    "When a foundational capability such as login is required by user-specific data access, recommend that capability as a small prerequisite feature; do not treat login as universally mandatory.",
+    "List other features as later roadmap candidates instead of bundling them into large A/B MVP choices.",
+    "After the user chooses the next feature, complete and show only that feature's specification and wait for its explicit implementation approval; after it is implemented and verified, stop and discuss the next feature."
+  ],
+  "out_of_scope": [
+    "Removing the full roadmap or dependency map from requirements artifacts.",
+    "Combining several independently verifiable features into one spec for convenience."
+  ],
+  "acceptance_criteria": [
+    "The skill distinguishes the full roadmap from the one next feature proposed for implementation.",
+    "It recommends one small, independently verifiable feature and explains its prerequisites and rationale.",
+    "It avoids presenting oversized whole-product bundles as A/B first-version choices.",
+    "Remaining roadmap features are recorded as later candidates and are selected only after the current feature is complete and reported.",
+    "Login or another common capability is proposed first only when the confirmed requirements make it necessary or valuable as a prerequisite.",
+    "The per-feature specification and explicit approval gate remains in force."
+  ],
+  "verification": [
+    "python C:/Users/trimi/.codex/skills/.system/skill-creator/scripts/quick_validate.py .agents/skills/requirements-interview",
+    "python harness.py validate"
+  ],
+  "approval": {
+    "by": "user",
+    "at": "2026-11-01T03:09:42.529178+00:00",
+    "revision": "44debd1db4ecefd1f3121efcbb86269900904cc6a29bcd1cbd244faeda936cf5"
+  }
+}

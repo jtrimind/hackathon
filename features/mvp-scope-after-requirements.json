@@ -1,0 +1,34 @@
+{
+  "id": "mvp-scope-after-requirements",
+  "title": "Select first-version scope after requirements review",
+  "goal": "Ensure the requirements interview produces a reviewed requirements brief before asking the user to choose features for the hackathon's first version.",
+  "in_scope": [
+    "Update the project-local requirements-interview skill to separate requirements discovery and review from first-version feature selection.",
+    "Require the agent to synthesize and present the requirements brief, including confirmed information, assumptions, and open questions, and incorporate the user's corrections before moving to scope selection.",
+    "After requirements review, map relevant features by independent, cross-cutting, and prerequisite-dependent relationships.",
+    "Present a concrete minimal MVP recommendation and relevant scope alternatives with tradeoffs, then ask the user which features belong in the first version while preserving necessary prerequisites.",
+    "Avoid asking vague or premature questions such as which direction is closest to the hackathon first version during requirements discovery.",
+    "Preserve the rule that reviewing requirements or choosing MVP scope does not approve implementation."
+  ],
+  "out_of_scope": [
+    "Changing the harness CLI or feature registry schema.",
+    "Implementing any product feature being discussed in a requirements interview."
+  ],
+  "acceptance_criteria": [
+    "The skill clearly separates requirements discovery, requirements brief review, and first-version scope selection in that order.",
+    "The requirements brief is shown to the user and revised for corrections before the agent asks which features belong in the first version.",
+    "Feature mapping happens after requirements review and identifies independent, cross-cutting, and prerequisite-dependent capabilities.",
+    "The agent makes a concrete minimal MVP recommendation, explains relevant tradeoffs, and asks the user to confirm or adjust the feature set.",
+    "The workflow avoids asking the user to choose a vague product direction as a proxy for first-version scope during requirements discovery.",
+    "MVP scope confirmation is explicitly kept separate from per-feature implementation approval."
+  ],
+  "verification": [
+    "python C:/Users/trimi/.codex/skills/.system/skill-creator/scripts/quick_validate.py .agents/skills/requirements-interview",
+    "python harness.py validate"
+  ],
+  "approval": {
+    "by": "user",
+    "at": "2026-11-01T01:53:45.402798+00:00",
+    "revision": "03d3f7197f3e9ede21c9198d2141482aa4912e3344eba381d9d21561c158bd20"
+  }
+}

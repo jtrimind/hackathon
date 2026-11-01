@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "features": [
+    {
+      "id": "requirements-interview-skill",
+      "title": "Project requirements interview skill",
+      "depends_on": [],
+      "status": "done",
+      "spec": "features/requirements-interview-skill.json"
+    },
+    {
+      "id": "mvp-scope-after-requirements",
+      "title": "Select first-version scope after requirements review",
+      "depends_on": [
+        "requirements-interview-skill"
+      ],
+      "status": "done",
+      "spec": "features/mvp-scope-after-requirements.json"
+    },
+    {
+      "id": "exception-and-outlier-probing",
+      "title": "Probe exceptions and outliers during requirements interviews",
+      "depends_on": [
+        "mvp-scope-after-requirements"
+      ],
+      "status": "done",
+      "spec": "features/exception-and-outlier-probing.json"
+    },
+    {
+      "id": "requirements-documents",
+      "title": "Produce functional and non-functional requirements files",
+      "depends_on": [
+        "exception-and-outlier-probing"
+      ],
+      "status": "done",
+      "spec": "features/requirements-documents.json"
+    },
+    {
+      "id": "common-capability-review",
+      "title": "Explicitly review common service capabilities",
+      "depends_on": [
+        "requirements-documents"
+      ],
+      "status": "done",
+      "spec": "features/common-capability-review.json"
+    },
+    {
+      "id": "incremental-feature-proposals",
+      "title": "Recommend and implement one small feature at a time",
+      "depends_on": [
+        "common-capability-review"
+      ],
+      "status": "done",
+      "spec": "features/incremental-feature-proposals.json"
+    },
+    {
+      "id": "architecture-stack-planning",
+      "title": "Plan architecture and technology stack from requirements",
+      "depends_on": [
+        "incremental-feature-proposals"
+      ],
+      "status": "done",
+      "spec": "features/architecture-stack-planning.json"
+    },
+    {
+      "id": "explicit-tech-stack-decisions",
+      "title": "Specify concrete technology stack in architecture records",
+      "depends_on": [
+        "architecture-stack-planning"
+      ],
+      "status": "done",
+      "spec": "features/explicit-tech-stack-decisions.json"
+    },
+    {
+      "id": "feature-requirement-links",
+      "title": "Link feature specifications to requirements",
+      "depends_on": [
+        "explicit-tech-stack-decisions"
+      ],
+      "status": "done",
+      "spec": "features/feature-requirement-links.json"
+    },
+    {
+      "id": "subagent-feature-implementation",
+      "title": "Implement one approved feature through a dedicated subagent skill",
+      "depends_on": [
+        "feature-requirement-links"
+      ],
+      "status": "done",
+      "spec": "features/subagent-feature-implementation.json"
+    }
+  ]
+}

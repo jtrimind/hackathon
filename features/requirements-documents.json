@@ -1,0 +1,37 @@
+{
+  "id": "requirements-documents",
+  "title": "Produce functional and non-functional requirements files",
+  "goal": "Produce reviewable functional and non-functional requirements documents from the initial project information and completed interview before feature and MVP scope selection.",
+  "in_scope": [
+    "Update the project-local requirements-interview skill to create separate Markdown files for functional and non-functional requirements as outputs of requirements discovery.",
+    "Add concise blank functional and non-functional requirements templates to the skill's assets and direct the skill to copy and adapt them for each project.",
+    "Use requirements/functional-requirements.md and requirements/non-functional-requirements.md by default, adapting to existing project documentation conventions when present.",
+    "Give each requirement a stable identifier and distinguish confirmed requirements, assumptions, and unresolved questions; preserve traceability to user-provided information or interview decisions where practical.",
+    "For functional requirements, capture relevant actor or context, expected behavior, applicable conditions or exceptions, and acceptance or verification notes where known.",
+    "For non-functional requirements, capture relevant quality or constraint expectations and measurable targets when known; do not invent thresholds or force irrelevant categories.",
+    "Present both files to the user for review and corrections before mapping implementation features or selecting the MVP scope.",
+    "Keep MVP.md as a concise summary and link or point to the two requirements files."
+  ],
+  "out_of_scope": [
+    "Implementing product features described by the requirements.",
+    "Generating requirements from unsupported assumptions or fabricating measurable targets."
+  ],
+  "acceptance_criteria": [
+    "The skill specifies separate, discoverable functional and non-functional requirements files with stable requirement IDs.",
+    "The skill contains reusable functional and non-functional requirements templates with clear placeholders and no example requirement that could be mistaken for a confirmed decision.",
+    "The files distinguish confirmed content from assumptions and unresolved questions and retain source traceability where practical.",
+    "Functional requirements capture behavior and applicable exceptions; non-functional requirements capture relevant quality expectations and targets only when supported by interview information.",
+    "Both documents are reviewed and corrected by the user before feature mapping and MVP scope selection begin.",
+    "MVP.md remains a concise summary that points to the requirements documents.",
+    "The skill does not invent requirement thresholds or force non-applicable quality categories."
+  ],
+  "verification": [
+    "python C:/Users/trimi/.codex/skills/.system/skill-creator/scripts/quick_validate.py .agents/skills/requirements-interview",
+    "python harness.py validate"
+  ],
+  "approval": {
+    "by": "user",
+    "at": "2026-11-01T02:41:30.199455+00:00",
+    "revision": "326bc9eb4a90e219a0434ac44ec4ae1ae78c16d206442966462507edfd573594"
+  }
+}

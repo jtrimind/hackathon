@@ -1,0 +1,47 @@
+{
+  "id": "requirements-interview-skill",
+  "title": "Project requirements interview skill",
+  "goal": "Give Codex a project-local skill that consistently interviews users about requirements before refining this repository's MVP and feature plan.",
+  "in_scope": [
+    "Create a discoverable skill at .agents/skills/requirements-interview/SKILL.md.",
+    "Begin by identifying stakeholders relevant to the idea, including distinct user roles such as operator and end user; do not force irrelevant stakeholder categories or require ranking stakeholders.",
+    "For each relevant stakeholder group or user role, ask what they want to achieve and what currently makes it difficult, and record differences or conflicts among their goals when they emerge.",
+    "Explore when and where the problem occurs and how it is handled today, asking about environment or tools when relevant; ask openly about any solution-shaping constraints (which may include legal or regulatory requirements) and clarify firm requirements versus preferences. After enough context is gathered, suggest a few suitable output forms with tradeoffs and decide collaboratively with the user rather than assuming one up front.",
+    "Before proposing the MVP scope, organize the relevant feature candidates; distinguish independent and cross-cutting capabilities and record prerequisite relationships among dependent features.",
+    "Use the feature map to propose a minimal, coherent MVP scope that includes required prerequisites, then discuss exclusions, success criteria, and verification.",
+    "Synthesize both the initial project information and interview answers into organized requirements; distinguish confirmed decisions, assumptions, and unresolved questions.",
+    "Identify the features included in the current sprint, record that scope and out-of-sprint next-review candidates separately in MVP.md, and track current sprint implemented versus not-yet-implemented features through the existing feature registry status states.",
+    "Describe how to ask questions conversationally, resolve missing or ambiguous answers, record requirements and confirmed decisions in MVP.md, and maintain the ordered feature registry and individual specifications.",
+    "Preserve this repository's rule that approval of an interview or plan does not approve implementation."
+  ],
+  "out_of_scope": [
+    "Changing harness.py or making interview answers a CLI prerequisite.",
+    "Creating a globally installed or general-purpose interview skill."
+  ],
+  "acceptance_criteria": [
+    "The skill has valid YAML frontmatter with a concise, relevant description and is located under .agents/skills/.",
+    "Its instructions guide the agent to identify relevant stakeholders and distinct user roles, then explore each one's goals and current difficulties in manageable conversational turns.",
+    "It captures stakeholder goal conflicts without forcing irrelevant stakeholder categories or asking the user to rank stakeholders.",
+    "It guides the agent to learn when and where the problem occurs, how it is handled today, relevant environment or tools, desired outcomes, and constraints before collaboratively considering product output forms.",
+    "After gathering enough context, it presents a few relevant output forms and tradeoffs for discussion and leaves the decision to the user.",
+    "Before defining the MVP scope, it organizes feature candidates and identifies independent, cross-cutting, and prerequisite-dependent capabilities.",
+    "It proposes a minimal, coherent MVP scope from that feature map, preserving required prerequisites and discussing exclusions, success criteria, and verification.",
+    "It synthesizes supplied project material and interview answers into requirements, separating confirmed decisions from assumptions and unresolved questions.",
+    "It records current sprint feature IDs and out-of-sprint next-review candidates separately in MVP.md, and tracks current sprint implemented versus not-yet-implemented status through the existing feature registry without requiring a CLI change.",
+    "It asks about constraints openly and treats example categories such as legal, regulatory, privacy, technical, schedule, budget, or organizational constraints as prompts rather than an exhaustive checklist.",
+    "It clarifies which stated constraints are firm requirements and which are preferences.",
+    "It treats MVP scope as a proposal based on the feature map rather than asking a separate question to sketch a usage flow.",
+    "It covers the remaining required requirement topics: exclusions, constraints, success criteria, and verification.",
+    "It directs the agent to distinguish confirmed answers from assumptions and to record the agreed MVP and feature plan in the repository's existing files.",
+    "It preserves per-feature specification approval and implementation gates from AGENTS.md and README.md."
+  ],
+  "verification": [
+    "python C:/Users/trimi/.codex/skills/.system/skill-creator/scripts/quick_validate.py .agents/skills/requirements-interview",
+    "python harness.py validate"
+  ],
+  "approval": {
+    "by": "user",
+    "at": "2026-11-01T01:40:53.489736+00:00",
+    "revision": "08a42232462deb69cf0fcb8aba80b226c86bd99b9b6028178f7a2fa21844e717"
+  }
+}

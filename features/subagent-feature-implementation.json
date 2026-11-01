@@ -1,0 +1,38 @@
+{
+  "id": "subagent-feature-implementation",
+  "title": "Implement one approved feature through a dedicated subagent skill",
+  "requirement_ids": [
+    "FR-003"
+  ],
+  "goal": "Give a coordinating agent a dedicated project-local skill for delegating implementation of one approved feature to a subagent with the repository's gates and verification intact.",
+  "in_scope": [
+    "Create a discoverable skill at .agents/skills/feature-implementer/SKILL.md intended to be invoked by a coordinating agent in a subagent context.",
+    "Accept exactly one feature ID as the implementation task and read repository instructions, the feature specification, linked requirements, and architecture decisions relevant to that feature.",
+    "Run the harness start gate before editing; if prerequisites, approval, or current spec revision are not accepted by the harness, stop and report the blocking condition.",
+    "Implement only the approved feature scope; do not alter its requirements or feature specification, implement neighboring features, or expand scope without returning to the coordinator.",
+    "Run the feature's listed verification commands, report their results, and run harness done only after all required verification succeeds.",
+    "Return a concise report to the coordinator with changed files, verification evidence, status, and any blockers or required decisions."
+  ],
+  "out_of_scope": [
+    "Conducting the user interview or obtaining implementation approval on the coordinator's behalf.",
+    "Selecting or implementing multiple features in one delegation.",
+    "The skill spawning its own subagent or managing an entire roadmap."
+  ],
+  "acceptance_criteria": [
+    "The skill is discoverable under .agents/skills/feature-implementer/ and is explicitly designed for one subagent implementation task at a time.",
+    "It reads the feature specification and relevant requirements and repository instructions before changing code.",
+    "It runs the harness start gate and makes no code changes if the feature is not approved, ready, or dependency-complete.",
+    "It implements only that feature and escalates specification gaps or scope changes to the coordinator.",
+    "It runs the listed verification commands, marks the feature done only after they succeed, and reports evidence to the coordinator.",
+    "It does not conduct user approval, create adjacent feature specs, or continue to the next feature."
+  ],
+  "verification": [
+    "python C:/Users/trimi/.codex/skills/.system/skill-creator/scripts/quick_validate.py .agents/skills/feature-implementer",
+    "python harness.py validate"
+  ],
+  "approval": {
+    "by": "user",
+    "at": "2026-11-01T03:34:15.634334+00:00",
+    "revision": "da7b32df244321939f99147b044462ebd4bfb10c56cd0c0455770582f8f27845"
+  }
+}

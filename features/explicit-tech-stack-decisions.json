@@ -1,0 +1,37 @@
+{
+  "id": "explicit-tech-stack-decisions",
+  "title": "Specify concrete technology stack in architecture records",
+  "goal": "Ensure architecture planning produces a concrete, reviewable technology stack instead of only describing generic technology categories or offering unselected options.",
+  "in_scope": [
+    "Update the architecture-planning skill to require a dedicated Technology Stack section in ARCHITECTURE.md or the repository's existing architecture document.",
+    "For each relevant layer, name the selected or recommended technology concretely, such as language/runtime, application framework, data store, API/integration approach, authentication approach, and deployment platform.",
+    "Record each choice's role, rationale, and decision status as Proposed, Confirmed, Open, or Not applicable.",
+    "Provide one coherent stack recommendation for the project and distinguish it from alternatives; alternatives alone do not count as a stack decision.",
+    "Prioritize languages and frameworks that support clear AI-assisted error feedback through static typing, static analysis, compiler or linter diagnostics, and automated checks; for example, consider TypeScript before JavaScript when both fit the project.",
+    "Explain when team familiarity, project constraints, or other requirements justify choosing a stack with weaker static feedback, rather than treating the example as an absolute rule.",
+    "When a required stack decision is unresolved, record a concrete provisional recommendation and the question or condition needed to confirm it.",
+    "Preserve the skill's requirement to verify current, changeable technology details in authoritative sources and to avoid implementing code or runtime configuration."
+  ],
+  "out_of_scope": [
+    "Mandating a fixed stack across projects.",
+    "Installing or configuring the selected technologies."
+  ],
+  "acceptance_criteria": [
+    "The architecture skill requires a dedicated Technology Stack section/table in the architecture record.",
+    "Each relevant stack layer names a concrete technology or a clearly labeled provisional recommendation, rather than only a generic category.",
+    "Each choice records its role, rationale, and status; irrelevant layers can be marked Not applicable.",
+    "The recommendation explicitly considers how easily AI-assisted review can detect and explain errors, including typing, static analysis, diagnostics, and automated checks.",
+    "The skill generally prefers TypeScript over JavaScript when both satisfy project needs, and documents a reason when another choice is better suited.",
+    "The architecture record presents one coherent recommended stack and lists alternatives separately with tradeoffs.",
+    "Unresolved choices remain visibly provisional/open and are not presented as user-confirmed decisions."
+  ],
+  "verification": [
+    "python C:/Users/trimi/.codex/skills/.system/skill-creator/scripts/quick_validate.py .agents/skills/architecture-planning",
+    "python harness.py validate"
+  ],
+  "approval": {
+    "by": "user",
+    "at": "2026-11-01T03:19:58.273515+00:00",
+    "revision": "075b1eadb487030378490b9a3c8f1c62019b15bea7126fa2155ae521c20f68a8"
+  }
+}

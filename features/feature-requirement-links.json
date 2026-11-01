@@ -1,0 +1,38 @@
+{
+  "id": "feature-requirement-links",
+  "title": "Link feature specifications to requirements",
+  "goal": "Make each active feature traceable to the functional or non-functional requirements it addresses, and have the harness reject missing or invalid references before implementation.",
+  "requirement_ids": [
+    "FR-001",
+    "FR-002"
+  ],
+  "in_scope": [
+    "Add a requirement_ids array to feature specification JSON files.",
+    "Discover stable FR- and NFR-style IDs from Markdown requirement documents under the repository's requirements/ directory.",
+    "Update harness validation so planned and in-progress features require at least one requirement ID and every populated reference resolves to an ID in the requirement documents.",
+    "Apply the same requirement-reference completeness and existence checks in ready and approve before implementation can begin.",
+    "Allow existing completed feature specifications to omit requirement links for backward compatibility; validate any links they do contain.",
+    "Update README.md to explain the requirement_ids field, requirement document location and ID format, and validation behavior."
+  ],
+  "out_of_scope": [
+    "Automatically inferring which requirements a feature satisfies.",
+    "Forcing retroactive requirement links onto completed legacy features.",
+    "Changing how requirements interviews are conducted."
+  ],
+  "acceptance_criteria": [
+    "Active feature specifications include one or more requirement_ids.",
+    "harness.py validate reports missing IDs for active features and unknown IDs in any populated requirement_ids list.",
+    "ready and approve reject a planned feature when its requirement_ids are missing or do not resolve.",
+    "Requirement IDs are read from Markdown files under requirements/ using stable FR-NNN and NFR-NNN forms.",
+    "Completed legacy features without requirement_ids remain valid, preserving the current registry.",
+    "README.md documents how to define and link requirement IDs."
+  ],
+  "verification": [
+    "python harness.py validate"
+  ],
+  "approval": {
+    "by": "user",
+    "at": "2026-11-01T03:32:04.198693+00:00",
+    "revision": "d528445d5192a2a765e7f647c85c92775b1264a09e0ea2519d06fe88a20566b8"
+  }
+}

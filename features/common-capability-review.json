@@ -1,0 +1,35 @@
+{
+  "id": "common-capability-review",
+  "title": "Explicitly review common service capabilities",
+  "goal": "Prevent commonly applicable cross-cutting capabilities, especially identity and login, from disappearing between requirements discovery and first-version scope selection.",
+  "in_scope": [
+    "Update the project-local requirements-interview skill to run an explicit applicability review of common cross-cutting capabilities after requirements review and before final feature mapping and MVP scope selection.",
+    "Offer a broader, non-exhaustive catalog of adaptable candidates: identity and access (login, anonymous access, roles, account lifecycle, user-data separation); data management (create/update/delete, import/export, bulk actions, history); discovery (search, filter, sort); workflows (assignment, approvals, status, collaboration); communication (notifications and preferences); administration and configuration; reporting and analytics; integrations; and operational or quality needs such as audit history, security, privacy, accessibility, localization, reliability, backup, and recovery.",
+    "For each relevant candidate, establish and record one disposition: needed in the first version, not needed with a brief rationale, deferred to a later version, or unresolved with a follow-up question.",
+    "When requirements refer to a user's own data, private records, or role-specific access, explicitly ask how the user will be identified and what access should be restricted; consider the selected identity/access capability as a prerequisite in the feature map when required.",
+    "Reflect confirmed decisions, deferrals, and unresolved questions in the functional/non-functional requirements documents and feature map before presenting MVP scope options.",
+    "Avoid assuming that login is required or unnecessary without an explicit product-context decision."
+  ],
+  "out_of_scope": [
+    "Forcing every common capability into every product or first-version scope.",
+    "Selecting a particular authentication provider or implementing authentication."
+  ],
+  "acceptance_criteria": [
+    "The skill has a distinct common-capability review before final feature mapping and MVP selection.",
+    "Login/identity and access control are explicitly resolved as first-version, not needed, deferred, or unresolved for applicable user-facing products.",
+    "User-specific, private, or role-specific requirements trigger targeted identity and access follow-up questions.",
+    "The skill offers examples across data management, discovery, workflows, communication, administration, reporting, integrations, and operational quality, and selects only relevant candidates for discussion.",
+    "Each relevant candidate receives a disposition without turning the example catalog into a compulsory checklist.",
+    "Decisions and open questions are recorded in the requirements documents and their required dependencies appear in the feature map.",
+    "The skill never assumes a login implementation or provider without user confirmation."
+  ],
+  "verification": [
+    "python C:/Users/trimi/.codex/skills/.system/skill-creator/scripts/quick_validate.py .agents/skills/requirements-interview",
+    "python harness.py validate"
+  ],
+  "approval": {
+    "by": "user",
+    "at": "2026-11-01T02:54:00.389860+00:00",
+    "revision": "60c4781556eead53ab306cb4069e73165bba1c541679169593952e6c9a5e5c2f"
+  }
+}
