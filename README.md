@@ -1,47 +1,67 @@
 # Hackathon Coding Agent Harness
 
-A small, file-based workflow for Codex and other coding agents. It does not require Ouroboros, an MCP server, a framework, or third-party Python packages.
+A small, file-based workflow for coding agents. It uses Python's standard library and does not require Ouroboros, an MCP server, or a runtime service.
 
-## Start here
+## Install in this repository
 
-1. Tell the agent the product idea and constraints. Ask it to refine the requirements with you; record functional and non-functional requirements with stable IDs in Markdown files under `requirements/`, summarize the MVP in `MVP.md`, and link each planned feature specification to the requirements it addresses.
-2. Review the feature order and dependency links. A feature may begin only when all its prerequisites are complete.
-3. For each feature, discuss scope, acceptance criteria, and verification commands. The agent must show you the finished spec and wait for your explicit approval before touching implementation code.
-4. After approval, the agent records it and starts the feature:
+Python 3.9+ is required. To initialize this workflow in another Git repository with [`uv`](https://docs.astral.sh/uv/):
 
-   ```powershell
-   python harness.py ready <feature-id>
-   python harness.py approve <feature-id> --by-user
-   python harness.py start <feature-id>
+```sh
+uvx --from git+https://github.com/jtrimind/hackathon harness init
+```
+
+This runs the CLI once in the current directory. To install a reusable command instead:
+
+```sh
+uv tool install git+https://github.com/jtrimind/hackathon
+harness init
+```
+
+Run the command from the repository you want to initialize. `harness init` creates a blank `features.json`, a `features/` directory, `MVP.md`, requirements templates, project instructions in `AGENTS.md`, and local requirements interview, architecture planning, and feature implementation skills. It does not copy this repository's feature list or requirements.
+
+Initialization is repeatable. Existing files are preserved and reported for review. If `AGENTS.md` already exists, the harness workflow block is appended between markers; subsequent runs update that block without adding another. Review any preserved files and merge their content with the scaffold where appropriate.
+
+After initialization, review the requirements templates and record the project context in `MVP.md`. Add a feature only after requirements discovery. Run `harness validate` to check the scaffold. A checkout of this repository also supports `python harness.py <command>`.
+
+## Workflow
+
+1. Refine the product requirements with the user. Record functional and non-functional requirements with stable IDs in Markdown files under `requirements/`, summarize the MVP in `MVP.md`, and link each planned feature specification to its requirements.
+2. Review the ordered feature registry and dependencies. A feature may begin only when all prerequisites are complete.
+3. For one feature at a time, complete its scope, acceptance criteria, and verification commands. Obtain explicit user approval for that exact specification before changing implementation code.
+4. Record approval and start the feature:
+
+   ```sh
+   harness ready <feature-id>
+   harness approve <feature-id> --by-user
+   harness start <feature-id>
    ```
 
-   `--by-user` is an audit record that the user explicitly approved; it is not a substitute for asking. Do not run it unless the user has said yes to that exact feature spec.
-5. Implement only that feature. Run its verification commands. Record the outcome and mark it complete:
+   `--by-user` is an audit record; use it only after the user approves that exact feature specification.
+5. Implement only that feature. Run its listed verification commands, record the result, and mark it complete:
 
-   ```powershell
-   python harness.py done <feature-id>
+   ```sh
+   harness done <feature-id>
    ```
 
-6. Report what changed and verification evidence. Then refine and approve the next feature separately.
+6. Report evidence and discuss the next feature separately.
+
+The harness does not execute arbitrary verification commands. The agent runs them and reports the results.
 
 ## Commands
 
-- `python harness.py status` — show feature states and dependencies.
-- `python harness.py validate` — check registry, specs, dependency IDs, requirement references, cycles, and ordering.
-- `python harness.py add <id> --title "..." [--depends-on id,id]` — add a feature and spec template.
-- `python harness.py ready <id>` — check the spec and prerequisites before approval.
-- `python harness.py approve <id> --by-user` — record explicit user approval for the current spec revision.
-- `python harness.py start <id>` — enforce the approval and dependency gate before implementation.
-- `python harness.py done <id>` — mark a started feature complete.
-
-Python 3.9+ is recommended. The harness itself uses only the standard library. On macOS/Linux, replace `python` with `python3` if needed.
+- `harness init` — initialize the harness in the current directory.
+- `harness status` — show feature states and dependencies.
+- `harness validate` — check the registry, specs, dependencies, requirement references, cycles, and ordering.
+- `harness add <id> --title "..." [--depends-on id,id]` — add a feature and a specification template.
+- `harness ready <id>` — check prerequisites and specification completeness.
+- `harness approve <id> --by-user` — record explicit approval of the current specification revision.
+- `harness start <id>` — enforce approval and prerequisite gates before implementation.
+- `harness done <id>` — mark a started feature complete after verification.
 
 ## Files
 
-- `MVP.md` — user-facing MVP summary and constraints.
+- `MVP.md` — project goal, users, constraints, and sprint scope.
 - `requirements/*.md` — functional and non-functional requirements with stable IDs such as `FR-001` and `NFR-001`.
 - `features.json` — ordered feature registry, status, dependencies, and spec paths.
-- `features/<id>.json` — feature scope, `requirement_ids`, acceptance criteria, verification commands, and approval record. Planned and in-progress features must reference at least one existing requirement ID; completed legacy features may omit links.
-- `harness.py` — portable workflow gate and validation CLI.
-
-Feature spec verification commands are run from the repository root using the current shell. Keep them focused on that feature. The harness does not run arbitrary commands automatically; the coding agent runs and reports them after implementation.
+- `features/<id>.json` — feature scope, requirement IDs, acceptance criteria, verification commands, and approval record.
+- `harness.py` — compatibility entry point for running the CLI from a repository checkout.

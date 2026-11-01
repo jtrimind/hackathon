@@ -23,3 +23,11 @@
 - **Acceptance or verification:** The skill starts through the harness gate, runs the feature's listed verification commands, marks the feature done only after successful verification, and returns a concise evidence-based report.
 - **Status:** Confirmed
 - **Source:** User request for a separate implementation skill to run in a subagent.
+
+### FR-004: Initialize the harness in another repository
+- **Statement:** A user can set up the file-based harness and its project-local skills in another repository using one or two simple commands.
+- **Actor/context:** A developer starting to use the harness in an existing or new project.
+- **Conditions and exceptions:** Existing project files must be preserved; initialization should create missing scaffold files and clearly report conflicts.
+- **Acceptance or verification:** A command initializes the local feature registry, requirements templates, instructions, and skills so the repository can use the existing feature workflow.
+- **Status:** Confirmed
+- **Source:** User request to make this harness easy to set up in other repositories, informed by the Q00/ouroboros installation flow.

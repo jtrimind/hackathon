@@ -88,6 +88,15 @@
       ],
       "status": "done",
       "spec": "features/subagent-feature-implementation.json"
+    },
+    {
+      "id": "project-bootstrap",
+      "title": "Install the harness and initialize another repository with one command",
+      "depends_on": [
+        "subagent-feature-implementation"
+      ],
+      "status": "done",
+      "spec": "features/project-bootstrap.json"
     }
   ]
 }

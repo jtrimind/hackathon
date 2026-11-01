@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hackathon-file-harness"
+version = "0.1.0"
+description = "A lightweight, file-based feature workflow for coding agents"
+requires-python = ">=3.9"
+dependencies = []
+
+[project.scripts]
+harness = "harness_cli.entry:main"
+
+[tool.setuptools]
+packages = ["harness_cli"]
+include-package-data = true
+
+[tool.setuptools.package-data]
+harness_cli = [
+  "templates/AGENTS.md",
+  "templates/MVP.md",
+  "templates/features.json",
+  "templates/features/.gitkeep",
+  "templates/requirements/*.md",
+  "templates/.agents/skills/*/SKILL.md",
+]

@@ -1,0 +1,38 @@
+{
+  "id": "project-bootstrap",
+  "title": "Install the harness and initialize another repository with one command",
+  "requirement_ids": [
+    "FR-004"
+  ],
+  "goal": "Let developers initialize this harness in a different repository with one or two short commands, without copying project-specific feature data or overwriting their files.",
+  "in_scope": [
+    "Package the existing dependency-free harness CLI as an installable Python command named `harness`, available from the repository's Git source.",
+    "Add a `harness init` command that operates on the current working directory and scaffolds a blank feature registry, feature directory, MVP summary, requirements templates, harness instructions, and the project's three local skills: requirements interview, architecture planning, and feature implementation.",
+    "Support one-command initialization through `uvx --from git+https://github.com/jtrimind/hackathon harness init`, and document the reusable install option `uv tool install git+https://github.com/jtrimind/hackathon` followed by `harness init`.",
+    "Make initialization safe and repeatable: create missing files, preserve existing project content, avoid duplicate instruction blocks, and report any existing files that need manual review rather than silently overwriting them.",
+    "Make globally installed CLI commands operate on the target repository's current working directory while preserving direct `python harness.py` usage in a repository checkout.",
+    "Update README.md with prerequisites, install and init commands, generated files, conflict behavior, and next steps."
+  ],
+  "out_of_scope": [
+    "Forking or embedding Q00/ouroboros core or requiring its runtime.",
+    "Configuring an AI runtime, MCP server, or user-level global skills outside the target project.",
+    "Publishing the package to a package index."
+  ],
+  "acceptance_criteria": [
+    "The project can be initialized from its Git source with the documented `uvx` command, and the installed CLI supports `harness init`.",
+    "Initialization creates a blank project scaffold and copies only generic templates and skills, not this repository's feature registry or project requirements.",
+    "Running init twice does not duplicate content or overwrite existing user-authored files.",
+    "Existing project files that cannot be merged safely are preserved and reported clearly.",
+    "After initialization, feature and requirement commands operate on the target repository rather than the CLI installation directory.",
+    "The existing direct script workflow remains available."
+  ],
+  "verification": [
+    "python harness.py validate",
+    "python harness.py init --help"
+  ],
+  "approval": {
+    "by": "user",
+    "at": "2026-11-01T05:37:06.330085+00:00",
+    "revision": "c4bb9e5fb61f1eec5ccfd7566e7e2582784d532f009f53d82fd8e494e3b892a1"
+  }
+}
