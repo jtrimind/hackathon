@@ -31,3 +31,11 @@
 - **Acceptance or verification:** A command initializes the local feature registry, requirements templates, instructions, and skills so the repository can use the existing feature workflow.
 - **Status:** Confirmed
 - **Source:** User request to make this harness easy to set up in other repositories, informed by the Q00/ouroboros installation flow.
+
+### FR-005: Provide a reusable guide for the preferred project stack
+- **Statement:** The harness provides a project-local skill and supporting reference files that help users start projects using the default preferred stack: TypeScript, Next.js, NestJS, PostgreSQL, Prisma ORM, and pnpm.
+- **Actor/context:** A user planning a new project with this harness and the architecture-planning skill.
+- **Conditions and exceptions:** The stack remains a preference. The guide explains when a technology may not apply or another choice may fit better. Project planning must verify current details that could have changed.
+- **Acceptance or verification:** The guide covers each technology's role and fit, relevant interoperability and compatibility, a practical starter architecture and implementation sequence, key pitfalls, and official source links with a checked date; the architecture-planning skill directs agents to consult it and recheck time-sensitive details.
+- **Status:** Confirmed
+- **Source:** User request to prepare reusable information files for the common preferred stack; user selected a practical guide including compatibility and starter structure.

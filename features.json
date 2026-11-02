@@ -97,6 +97,16 @@
       ],
       "status": "done",
       "spec": "features/project-bootstrap.json"
+    },
+    {
+      "id": "preferred-stack-guide",
+      "title": "Provide a practical guide for the preferred project stack",
+      "depends_on": [
+        "explicit-tech-stack-decisions",
+        "project-bootstrap"
+      ],
+      "status": "done",
+      "spec": "features/preferred-stack-guide.json"
     }
   ]
 }

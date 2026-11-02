@@ -1,0 +1,41 @@
+{
+  "id": "preferred-stack-guide",
+  "title": "Provide a practical guide for the preferred project stack",
+  "goal": "Give architecture planning a reusable, source-backed guide for projects that fit the harness's preferred stack.",
+  "requirement_ids": [
+    "FR-005",
+    "NFR-001",
+    "NFR-002"
+  ],
+  "in_scope": [
+    "Create a discoverable project-local skill under .agents/skills/ for planning projects with the preferred stack.",
+    "Create supporting reference material covering TypeScript, Next.js, NestJS, PostgreSQL, Prisma ORM, and pnpm: each technology's role, fit, and relevant alternatives.",
+    "Describe a practical frontend/backend starter architecture, how the technologies work together, and an incremental project setup and implementation sequence.",
+    "Document material compatibility considerations, common pitfalls, and decision points without presenting changeable versions or support details as timeless facts.",
+    "Include official documentation sources and a last-verified date in the reference material; direct the skill to recheck current compatibility, lifecycle, and setup details during project planning.",
+    "Update the architecture-planning skill to consult the preferred-stack guide when relevant while treating its choices as defaults that can be overridden by project needs."
+  ],
+  "out_of_scope": [
+    "Mandating the preferred stack for every project.",
+    "Implementing an application, generating project code, or installing/configuring dependencies in a product repository.",
+    "Guaranteeing specific current versions, compatibility combinations, deployment prices, or support lifecycles without rechecking official sources at planning time.",
+    "Replacing project-specific requirements discovery or architecture decisions with the reference guide."
+  ],
+  "acceptance_criteria": [
+    "The new skill has valid frontmatter and is discoverable under .agents/skills/.",
+    "Supporting reference material covers the role and fit of all six preferred technologies and explains their boundaries and relevant alternatives.",
+    "The guide includes a coherent starter architecture and an ordered practical setup/implementation path, including important integration points between frontend, backend, database, ORM, and package manager.",
+    "Compatibility notes and pitfalls are explicit, and time-sensitive claims have official sources and a last-verified date.",
+    "The skill instructs agents to revalidate changeable details from current official sources and not treat the preferred stack as mandatory.",
+    "The architecture-planning skill points to and uses the guide when relevant, while retaining project-specific requirements analysis."
+  ],
+  "verification": [
+    "python C:/Users/trimi/.codex/skills/.system/skill-creator/scripts/quick_validate.py .agents/skills/preferred-stack-guide",
+    "python harness.py validate"
+  ],
+  "approval": {
+    "by": "user",
+    "at": "2026-11-01T12:50:46.683703+00:00",
+    "revision": "524ff91ed7b29924b121ce909290e473d51d7930727c03ff77c96fb7f471fdda"
+  }
+}

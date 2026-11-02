@@ -20,6 +20,8 @@ A project-local Codex skill guides agents through a consistent requirements inte
 - Provide a separate subagent-oriented implementation skill that consumes one approved feature specification, implements and verifies only that feature, and reports the result.
 - Provide a downstream project-local architecture planning skill that uses reviewed requirements and the feature roadmap to recommend an architecture and technology stack, then records user-confirmed decisions.
 - Prefer languages and frameworks that make implementation errors easy for AI-assisted review to detect and explain through strong typing, static analysis, clear diagnostics, and automated checks; require the architecture record to name concrete stack choices with rationale.
+- As a cross-project default preference during architecture planning, prioritize TypeScript for application code, Next.js for frontend applications, NestJS for backend services, PostgreSQL for relational persistence, Prisma ORM for database access, and pnpm as the package manager when those choices fit the project's requirements and constraints. Treat them as preferences rather than mandatory choices, and explain justified deviations.
+- Prepare a reusable practical reference guide and project-local skill for planning projects with this preferred stack. Cover technology roles and fit, compatibility and interoperability, a starter architecture and implementation sequence, common pitfalls, and official sources with a checked date; recheck changing details during each project plan.
 - For each meaningful answer, consider relevant exceptions, edge cases, and outlier situations; ask focused follow-up questions when they could change the requirements.
 - Identify stakeholders relevant to the idea, including users split into meaningful roles such as operator and end user.
 - For each relevant stakeholder group or user role, discuss what they want to achieve and what currently makes it difficult; capture conflicting goals when they emerge, without requiring a primary stakeholder ranking.
@@ -41,3 +43,21 @@ A project-local Codex skill guides agents through a consistent requirements inte
 - Keep the skill local to this repository under `.agents/skills/`.
 - Keep hackathon feature approval gates in force; interview or plan approval is not implementation approval.
 - Keep features small and independently verifiable.
+
+## Requirements
+
+- [Functional requirements](requirements/functional-requirements.md)
+- [Non-functional requirements](requirements/non-functional-requirements.md)
+
+## Capability review
+
+- User accounts, authentication, and access control: not needed; this is a planning/reference capability for repository users, not a user-facing service.
+- Product data management, search, workflows, notifications, administration, reporting, and integrations: not needed for this feature; the deliverable is local documentation and a project skill.
+- Operational quality: keep technical guidance traceable to official sources and recheck time-sensitive details during project planning.
+
+## Feature map and sprint scope
+
+- **Current sprint:** `preferred-stack-guide` — create the preferred-stack planning skill and its practical reference guide, then connect it to architecture planning. Prerequisites `architecture-stack-planning`, `explicit-tech-stack-decisions`, and `project-bootstrap` are complete.
+- **Later candidates:** None identified yet.
+- **Dependency order:** `architecture-stack-planning` → `explicit-tech-stack-decisions` → `project-bootstrap` → `preferred-stack-guide` (all prerequisites are complete).
+- **Recommended next feature:** `preferred-stack-guide`, as specified in [features/preferred-stack-guide.json](features/preferred-stack-guide.json).
