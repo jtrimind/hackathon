@@ -1,6 +1,6 @@
 # Preferred Stack: Practical Project Guide
 
-**Reference checked:** 2026-11-02  
+**Reference checked:** 2026-11-03
 **Scope:** A starting point for projects handled by this harness. It is a preference, not a mandate. Recheck version, support, compatibility, and setup details before planning or scaffolding a real project.
 
 ## Recommended shape
@@ -47,12 +47,13 @@ Start with `apps/web` and `apps/api`. Add `packages/api-contract` only if sharin
 | PostgreSQL | Relational system of record | Data has relationships, constraints, transactions, or query needs that fit a relational database | Data shape or hosting constraints favor a different store; verify the data model first |
 | Prisma ORM | Typed data access and schema/migration workflow between API code and PostgreSQL | TypeScript-oriented model/query tooling helps the team move quickly | Advanced SQL, unsupported features, operational constraints, or team expertise favor SQL-first access or another ORM |
 | pnpm | Package manager; optional workspace manager for the repo | Reproducible lockfile installs and a shared multi-package workspace are useful | Repository policy, tooling, or deployment systems require another package manager |
+| Jest | Default unit and integration test runner for TypeScript web/API projects | A consistent test runner across application packages is useful | A framework's official guidance or an existing toolchain favors another runner; check current framework guidance before choosing |
 
 These layers are related but not interchangeable: TypeScript checks code before runtime; Next.js serves the web experience; NestJS owns the backend API and business rules; PostgreSQL stores durable relational data; Prisma translates between typed application code and the database; pnpm installs and links packages.
 
 ## Compatibility and release checks
 
-Checked against official sources on **2026-11-02**:
+Compatibility details checked against official sources on **2026-11-02**:
 
 - **Node.js:** Use a currently supported LTS line that satisfies every selected framework's minimum. On the check date, Node.js 24 and 26 are listed as LTS; Node.js 27 is Alpha. Prefer Node.js 24 as a conservative common baseline and recheck the release table and each framework's requirements before creating the project.
 - **Next.js:** The current App Router getting-started path scaffolds TypeScript by default when recommended settings are selected. Check its current Node.js floor and hosting/runtime requirements.
@@ -73,7 +74,7 @@ Release and minimum-version facts change. Do not copy the values above as perman
 5. **Scaffold the API.** Use the current NestJS starter or a current official integration template that fits the workspace. Keep HTTP controllers thin; organize domain behavior into modules/services. Select and document REST/OpenAPI or another API contract based on consumers.
 6. **Model and connect data.** Select a supported PostgreSQL release/provider. Add Prisma using instructions for the selected Prisma major. Keep credentials in environment/secret management, validate configuration at startup, generate migrations through the chosen workflow, and review migrations before applying them.
 7. **Connect the web app to the API.** Define request/response schemas and validate untrusted input in the API. Configure local origins, API base URLs, authentication, CORS/cookies, and CSRF protections according to the deployment topology. Do not expose database credentials to the browser.
-8. **Add delivery checks.** At minimum, define repeatable install, format/lint, TypeScript check, unit/integration check, and production build commands. Run database migrations as a deliberate deployment step and verify the rollback/backup expectations.
+8. **Add delivery checks.** At minimum, define repeatable install, format/lint, TypeScript check, unit/integration check, and production build commands. Use Jest as the preferred unit/integration test runner by default. For React UI tests, pair it with React Testing Library; keep end-to-end testing as a separate tool decision. Check current framework guidance and configure Jest for the selected framework and TypeScript setup. Run database migrations as a deliberate deployment step and verify the rollback/backup expectations.
 9. **Choose hosting after runtime needs are known.** Check support for Node.js LTS, long-running NestJS processes, PostgreSQL connection pooling, secrets, migrations, and background work. Avoid choosing providers from this guide alone.
 
 For a local manual walkthrough, keep each required development server running in its own terminal and report the exact URL and port. Opening `localhost` will fail if the relevant server process has stopped or is listening on another port.
@@ -102,7 +103,7 @@ When the goal is to prove that the application reads database contents, seed a s
 
 ## Official sources
 
-All links were checked on **2026-11-02**. Recheck before using version numbers, setup commands, or support statements.
+Existing compatibility links were checked on **2026-11-02**; testing references were checked on **2026-11-03**. Recheck before using version numbers, setup commands, or support statements.
 
 ### Languages and frameworks
 
