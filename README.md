@@ -43,6 +43,8 @@ After initialization, review the requirements templates and record the project c
    harness done <feature-id>
    ```
 
+   The feature implementation skill may use a Ralph loop to fix and re-verify failures within this approved feature. The loop must not change the approved scope or specification. Stop and return to the coordinator if a specification or scope change is needed; that change requires renewed user approval and a new implementation start.
+
 6. Report evidence and discuss the next feature separately.
 
 The harness does not execute arbitrary verification commands. The agent runs them and reports the results.
