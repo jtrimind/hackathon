@@ -10,6 +10,7 @@ Use this skill when someone brings a product idea or asks to refine requirements
 ## Interview approach
 
 - Treat this as a conversation, not a form. Ask one main question at a time, or a few tightly related questions when that makes answering easier. Use answers to shape follow-ups; do not dump the whole question set at once.
+- When practical, pair an interview question with a short set of relevant answer options and an explicit way to answer freely (for example, “Something else / tell me in your own words”). Keep options illustrative rather than exhaustive, include “not sure yet” when useful, and avoid forcing a choice when the topic is genuinely open-ended or options would bias the answer.
 - Start from what the user has already provided. Summarize known information, separate confirmed facts from assumptions, and ask only about important gaps or ambiguities.
 - Keep a running, concise summary of decisions and open questions. Do not silently turn an assumption into a confirmed requirement.
 - Help the user reason through the product and its possible outcomes. Offer examples when useful, without treating examples as exhaustive choices or making decisions for the user.
