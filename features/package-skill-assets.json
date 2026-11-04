@@ -1,0 +1,30 @@
+{
+  "id": "package-skill-assets",
+  "title": "Include skill assets in installed scaffold",
+  "requirement_ids": [
+    "FR-006"
+  ],
+  "goal": "Ensure projects initialized through the packaged harness receive every file referenced by its local skills.",
+  "in_scope": [
+    "Include requirements-interview assets in the packaged templates and initialized target repository.",
+    "Update package configuration so nested skill assets are included in built distributions."
+  ],
+  "out_of_scope": [
+    "Changing the content or interview workflow of the requirements-interview skill."
+  ],
+  "acceptance_criteria": [
+    "A fresh `harness init` creates both functional and non-functional requirements templates under `.agents/skills/requirements-interview/assets/`.",
+    "The source distribution and wheel include those assets so both `uvx` and `uv tool install` can initialize the complete skill.",
+    "Existing target files remain preserved by repeatable initialization."
+  ],
+  "verification": [
+    "python harness.py validate",
+    "python -m build",
+    "Inspect the built wheel and source archive for both requirements-interview asset files."
+  ],
+  "approval": {
+    "by": "user",
+    "at": "2026-11-04T09:42:26.457803+00:00",
+    "revision": "ab15821a55354df9658657ad17bd853f0f73a4dbf655323c2ac724eb743a0bf4"
+  }
+}

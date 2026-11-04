@@ -24,4 +24,5 @@ harness_cli = [
   "templates/features/.gitkeep",
   "templates/requirements/*.md",
   "templates/.agents/skills/*/SKILL.md",
+  "templates/.agents/skills/*/assets/*.md",
 ]

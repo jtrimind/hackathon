@@ -39,3 +39,11 @@
 - **Acceptance or verification:** The guide covers each technology's role and fit, relevant interoperability and compatibility, a practical starter architecture and implementation sequence, key pitfalls, and official source links with a checked date; the architecture-planning skill directs agents to consult it and recheck time-sensitive details.
 - **Status:** Confirmed
 - **Source:** User request to prepare reusable information files for the common preferred stack; user selected a practical guide including compatibility and starter structure.
+
+### FR-006: Package all referenced skill resources
+- **Statement:** Harness initialization provides every supporting file referenced by its project-local skills.
+- **Actor/context:** A developer initializing another repository through the installed harness CLI.
+- **Conditions and exceptions:** Existing target files remain preserved and reported by the repeatable initializer.
+- **Acceptance or verification:** A fresh initialization includes the requirements-interview functional and non-functional template assets, and built distributions contain them.
+- **Status:** Confirmed
+- **Source:** User report that the installed harness's requirements-interview skill lacked its assets.

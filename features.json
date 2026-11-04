@@ -99,6 +99,15 @@
       "spec": "features/project-bootstrap.json"
     },
     {
+      "id": "package-skill-assets",
+      "title": "Include skill assets in installed scaffold",
+      "depends_on": [
+        "project-bootstrap"
+      ],
+      "status": "done",
+      "spec": "features/package-skill-assets.json"
+    },
+    {
       "id": "preferred-stack-guide",
       "title": "Provide a practical guide for the preferred project stack",
       "depends_on": [
