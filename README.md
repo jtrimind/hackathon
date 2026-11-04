@@ -17,7 +17,7 @@ uv tool install git+https://github.com/jtrimind/hackathon
 harness init
 ```
 
-Run the command from the repository you want to initialize. `harness init` creates a blank `features.json`, a `features/` directory, `MVP.md`, requirements templates, project instructions in `AGENTS.md`, and local requirements interview, architecture planning, and feature implementation skills. It does not copy this repository's feature list or requirements.
+Run the command from the repository you want to initialize. `harness init` creates a blank `features.json`, a `features/` directory, `MVP.md`, requirements templates, project instructions in `AGENTS.md`, and project-local copies of every skill under this repository's `.agents/skills/` directory, including nested references and assets. Package builds synchronize the skills from `.agents/skills/` automatically. It does not copy this repository's feature list or requirements.
 
 Initialization is repeatable. Existing files are preserved and reported for review. If `AGENTS.md` already exists, the harness workflow block is appended between markers; subsequent runs update that block without adding another. Review any preserved files and merge their content with the scaffold where appropriate.
 

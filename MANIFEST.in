@@ -1,1 +1,2 @@
 recursive-include harness_cli/templates *
+recursive-include .agents/skills *

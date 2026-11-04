@@ -47,3 +47,11 @@
 - **Acceptance or verification:** A fresh initialization includes the requirements-interview functional and non-functional template assets, and built distributions contain them.
 - **Status:** Confirmed
 - **Source:** User report that the installed harness's requirements-interview skill lacked its assets.
+
+### FR-007: Keep installed project skills synchronized
+- **Statement:** Packages built from this repository include the complete current `.agents/skills/` tree for initialization into another repository.
+- **Actor/context:** A developer installing the harness from its Git repository and running `harness init`.
+- **Conditions and exceptions:** Existing target files remain preserved by the initializer; skills remain project-local and are not installed into global agent configuration.
+- **Acceptance or verification:** The wheel and source distribution include all repository-local skills and nested supporting files, and fresh initialization creates them.
+- **Status:** Confirmed
+- **Source:** User request to keep the installed package synchronized with the repository skills.

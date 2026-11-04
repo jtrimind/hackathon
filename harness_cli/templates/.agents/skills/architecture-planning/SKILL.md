@@ -18,6 +18,8 @@ Read the repository instructions and existing project materials before recommend
 
 Use the project's actual files and tools to confirm facts. Do not assume that a technology is already selected because it is familiar or common.
 
+When the project's needs may fit the harness's preferred stack, consult `.agents/skills/preferred-stack-guide/SKILL.md` and its `references/preferred-stack.md` before making a recommendation. Treat them as orientation, not project requirements; inspect the actual repository and requirements, and recheck time-sensitive details against current official sources.
+
 ## Make a grounded recommendation
 
 1. Identify the requirements and constraints that most affect architecture. Map each important choice back to those inputs.
@@ -28,6 +30,8 @@ Use the project's actual files and tools to confirm facts. Do not assume that a 
 6. Keep the architecture compatible with the agreed feature dependencies and incremental delivery plan. Do not design infrastructure for speculative future scale unless a requirement supports it.
 
 Prioritize languages and frameworks that make errors easy for AI-assisted review to detect and explain. Consider static typing, static analysis, compiler and linter diagnostics, type-aware tooling, and automated checks. When TypeScript and JavaScript both fit the requirements and repository, evaluate TypeScript first. Treat this as a preference, not a fixed rule: team familiarity, existing project conventions, deployment constraints, or other requirements can justify another choice. Explain the reason for that choice.
+
+As a default preference across projects handled by this harness, evaluate TypeScript for application code, Next.js for frontend applications, NestJS for backend services, PostgreSQL for relational persistence, Prisma ORM for database access, and pnpm as the package manager. Recommend this combination when it fits the confirmed requirements, repository, team, deployment environment, and current compatibility. These are defaults to evaluate, not mandatory choices: if a project has no frontend or backend, does not need relational persistence, already uses a compatible stack, or has constraints that favor another technology, mark irrelevant layers `Not applicable` or recommend a suitable alternative and explain the reason. Verify current compatibility and lifecycle details in official sources when they affect the recommendation.
 
 When recommending a specific technology, provider, version, hosting option, or security capability whose current status could affect the choice, verify current details in authoritative primary sources such as official documentation. Explain relevant compatibility or lifecycle concerns and cite the sources used. Do not rely on memory for changing product specifications, support status, or pricing.
 

@@ -1,0 +1,34 @@
+{
+  "id": "sync-installed-skills",
+  "title": "Keep installed skills synchronized with repository skills",
+  "requirement_ids": [
+    "FR-007"
+  ],
+  "goal": "Ensure harness packages and fresh project scaffolds include the current repository-local skills and all of their supporting files.",
+  "in_scope": [
+    "Synchronize every skill under `.agents/skills/`, including nested references, assets, and agent metadata, into the installable scaffold as part of package creation.",
+    "Include all synchronized files in both wheel and source distributions used by `uv tool install` and `uvx`.",
+    "Update README installation documentation to describe that all repository-local skills are included."
+  ],
+  "out_of_scope": [
+    "Installing skills into a user's global agent configuration outside the initialized project.",
+    "Overwriting existing skill files in a target project during `harness init`."
+  ],
+  "acceptance_criteria": [
+    "Building the package synchronizes the full `.agents/skills/` tree into the packaged templates without relying on manual per-skill copies.",
+    "The built wheel and source distribution contain every source skill file with identical relative paths and contents.",
+    "A fresh project initialized from the built package has all repository-local skills and nested supporting files.",
+    "Running initialization again preserves pre-existing skill files."
+  ],
+  "verification": [
+    "python harness.py validate",
+    "uvx --from build pyproject-build",
+    "Compare the `.agents/skills/` tree with the contents in both built distributions.",
+    "Initialize a temporary project from the built wheel and compare its skill tree with the repository source."
+  ],
+  "approval": {
+    "by": "user",
+    "at": "2026-11-04T09:47:43.296636+00:00",
+    "revision": "884cc6b9b01f114849faae9d406d58714012af79caa2bbae9bde2105b5c7c8c7"
+  }
+}

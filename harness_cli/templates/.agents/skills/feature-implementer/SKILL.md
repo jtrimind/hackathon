@@ -26,6 +26,9 @@ This skill is for a subagent that has been delegated one feature ID by a coordin
 - Follow repository instructions and the recorded architecture. If the spec conflicts with requirements or architecture, or a necessary decision is missing, stop and ask the coordinator rather than silently changing scope.
 - Keep changes focused. Inspect your diff so unrelated edits are not included.
 - Run every verification command listed in the feature spec from the repository root. If a command fails, report the output and fix only issues within the approved scope. Do not mark the feature done while required verification is failing.
+- You may use a Ralph loop to repeat implementation fixes and the feature's listed verification commands until they pass. Keep every iteration within the current approved scope and specification. Do not let the loop change acceptance criteria, add work from another feature, or continue into dependent features.
+- Stop the loop and report to the coordinator if passing verification requires changing the specification, expanding scope, or making a decision the specification leaves open. The coordinator must get renewed user approval for the revised specification and restart the harness gate before that work proceeds.
+- Treat the feature's listed verification commands as the loop's success condition. Do not run an open-ended loop across the MVP or mark the feature done unless all listed commands succeed.
 
 After all listed verification commands succeed, record completion:
 
